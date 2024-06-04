@@ -7,14 +7,14 @@ const AddTaskForm = () => {
         <div className="row g-3">
           <div className="col-md-6">
             <input
-              className="form-control"
+              className="form-control table-secondary"
               type="text"
               placeholder="Enter your Task"
             />
           </div>
           <div className="col-md-3">
             <input
-              className="form-control"
+              className="form-control table-secondary"
               type="number"
               placeholder="Hours/week"
             />

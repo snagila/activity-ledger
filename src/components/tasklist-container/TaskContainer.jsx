@@ -7,8 +7,14 @@ const TaskContainer = () => {
   return (
     <>
       <AddTaskForm />
-      <TaskList />
-      <PitList />
+
+      <div className="row mt-5 pt-2">
+        <TaskList />
+        <PitList />
+        <div className="alert alert-info">
+          Total hrs per week allocated = <span id="totalHr">1234</span>hr
+        </div>
+      </div>
     </>
   );
 };

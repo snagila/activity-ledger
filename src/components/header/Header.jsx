@@ -4,11 +4,11 @@ const Header = () => {
   return (
     <>
       <div className="  header ">
-        <div className="heading text-center me-5">
+        <div className="heading text-center  ">
           <h1>Activity Ledger</h1>
         </div>
         <div className="motto">
-          <p className="text-end fst-italic">
+          <p className="text-center fst-italic">
             "Being Busy isn't an excuse, it's about managing time"
           </p>
         </div>

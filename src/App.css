@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  color: whitesmoke;
+  color: rgba(241, 174, 49, 0.717);
   background: radial-gradient(
     circle,
     rgba(44, 62, 80, 1) 0%,
@@ -16,6 +16,8 @@ body {
   margin-top: 4em;
 }
 .addTaskForm {
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.897);
+  box-shadow: 2px 2px 5px #c4c3d0;
 }
-/* ProcrastinationPit */
+.table-transparent {
+  background: #c4c3d0 !important;
+}
