@@ -2,7 +2,7 @@ import React from "react";
 
 const PitList = ({ handleOnDelete, taskContainer, switchTask }) => {
   const proPit = taskContainer.filter((item) => item.type === "pitList");
-  console.log(proPit);
+
   return (
     <>
       <div className="col-md">
@@ -12,7 +12,7 @@ const PitList = ({ handleOnDelete, taskContainer, switchTask }) => {
           <tbody>
             {proPit.map((item, i) => (
               <tr key={i}>
-                <td>{i}</td>
+                <td>{i + 1}</td>
                 <td>{item.taskName}</td>
                 <td>{item.taskTime}</td>
                 <td className="text-end ">

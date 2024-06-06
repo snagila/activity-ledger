@@ -13,14 +13,12 @@ const TaskContainer = () => {
     }
   };
   const switchTask = (id, type) => {
-    const templist = taskContainer.map((item) => {
-      console.log(type);
-      if (item.id === id) item.type === type;
-      console.log(type);
+    const tempArg = taskContainer.map((item) => {
+      if (item.id === id) item.type = type;
 
       return item;
     });
-    setTaskContainer(templist);
+    setTaskContainer(tempArg);
   };
 
   return (

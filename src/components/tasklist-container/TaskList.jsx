@@ -12,7 +12,7 @@ const TaskList = ({ taskContainer, handleOnDelete, switchTask }) => {
           <tbody className="">
             {taskOverView.map((item, i) => (
               <tr key={i}>
-                <td>{i}</td>
+                <td>{i + 1}</td>
                 <td>{item.taskName}</td>
                 <td>{item.taskTime}</td>
                 <td className="text-end ">
