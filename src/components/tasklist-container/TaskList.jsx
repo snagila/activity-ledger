@@ -1,8 +1,6 @@
 import React from "react";
 
-const TaskList = ({ taskContainer, handleOnDelete, switchTask }) => {
-  const taskOverView = taskContainer.filter((item) => item.type === "allTask");
-
+const TaskList = ({ handleOnDelete, switchTask, taskOverView }) => {
   return (
     <>
       <div className="col-md">

@@ -1,7 +1,6 @@
 import React from "react";
 
-const PitList = ({ handleOnDelete, taskContainer, switchTask }) => {
-  const proPit = taskContainer.filter((item) => item.type === "pitList");
+const PitList = ({ handleOnDelete, proPit, switchTask }) => {
   const proPitHrs = proPit.reduce((acc, curr) => acc + curr.taskTime, 0);
 
   return (

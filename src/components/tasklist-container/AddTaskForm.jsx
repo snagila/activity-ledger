@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { randomIdGenerator } from "../../utilities/randomIdGenerator";
 
-const AddTaskForm = ({ taskContainer, setTaskContainer }) => {
+const AddTaskForm = ({ taskContainer, setTaskContainer, allTask }) => {
   const hrsPerWeek = 24 * 7;
   const [form, setForm] = useState({});
 
@@ -26,6 +26,13 @@ const AddTaskForm = ({ taskContainer, setTaskContainer }) => {
     totalHours + formData.taskTime > hrsPerWeek
       ? alert("Sorry! You have allocated all the hours for the week")
       : setTaskContainer([...taskContainer, formData]);
+
+    // allTask.forEach((item) => {
+    //   if (item.taskName === item.taskName) {
+    //     alert("hello");
+    //     return;
+    //   }
+    // });
   };
   return (
     <>

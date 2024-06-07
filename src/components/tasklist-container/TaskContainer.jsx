@@ -5,8 +5,11 @@ import PitList from "./PitList";
 
 const TaskContainer = () => {
   const [taskContainer, setTaskContainer] = useState([]);
+  // const [display, setDisplay] = useState(false);
+  const taskOverView = taskContainer.filter((item) => item.type === "allTask");
+  const proPit = taskContainer.filter((item) => item.type === "pitList");
 
-  const [display, setDisplay] = useState(false);
+  const allTask = proPit.concat(taskOverView);
 
   const handleOnDelete = (id) => {
     if (window.confirm("Are you sure,you want to delete this Task?")) {
@@ -32,18 +35,20 @@ const TaskContainer = () => {
       <AddTaskForm
         taskContainer={taskContainer}
         setTaskContainer={setTaskContainer}
+        allTask={allTask}
       />
 
       <div className="row mt-5 pt-2">
         <TaskList
-          taskContainer={taskContainer}
           handleOnDelete={handleOnDelete}
           switchTask={switchTask}
+          taskOverView={taskOverView}
         />
         <PitList
           taskContainer={taskContainer}
           handleOnDelete={handleOnDelete}
           switchTask={switchTask}
+          proPit={proPit}
         />
         <div className="alert alert-info mt-2">
           Total hrs per week allocated = <span id="totalHr">{allTaskHrs}</span>{" "}
