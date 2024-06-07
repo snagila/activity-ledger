@@ -42,6 +42,7 @@ const AddTaskForm = ({ taskContainer, setTaskContainer }) => {
               placeholder="Enter your Task"
               name="taskName"
               onChange={handleOnChange}
+              required
             />
           </div>
           <div className="col-md-3">
@@ -51,6 +52,9 @@ const AddTaskForm = ({ taskContainer, setTaskContainer }) => {
               placeholder="Hours/week"
               name="taskTime"
               onChange={handleOnChange}
+              required
+              min="1"
+              max="24"
             />
           </div>
           <div className="col-md-3 ">

@@ -45,7 +45,7 @@ const TaskContainer = () => {
           handleOnDelete={handleOnDelete}
           switchTask={switchTask}
         />
-        <div className="alert alert-info">
+        <div className="alert alert-info mt-2">
           Total hrs per week allocated = <span id="totalHr">{allTaskHrs}</span>{" "}
           hr/s
           {/* {allTaskHrs > 1 ? <p>hours</p> : <p>hour</p>} */}
