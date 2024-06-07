@@ -2,6 +2,7 @@ import React from "react";
 
 const PitList = ({ handleOnDelete, taskContainer, switchTask }) => {
   const proPit = taskContainer.filter((item) => item.type === "pitList");
+  const proPitHrs = proPit.reduce((acc, curr) => acc + curr.taskTime, 0);
 
   return (
     <>
@@ -34,8 +35,8 @@ const PitList = ({ handleOnDelete, taskContainer, switchTask }) => {
           </tbody>
         </table>
         <div className="alert alert-danger">
-          You could have save =<span>10</span>
-          hr
+          You could have save = <span>{proPitHrs}</span> hr/s
+          {/* {proPitHrs > 1 ? <p>hours</p> : <p>hour</p>} */}
         </div>
       </div>
     </>

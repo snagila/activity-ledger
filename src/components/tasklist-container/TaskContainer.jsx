@@ -5,7 +5,8 @@ import PitList from "./PitList";
 
 const TaskContainer = () => {
   const [taskContainer, setTaskContainer] = useState([]);
-  console.log(taskContainer);
+
+  const [display, setDisplay] = useState(false);
 
   const handleOnDelete = (id) => {
     if (window.confirm("Are you sure,you want to delete this Task?")) {
@@ -20,6 +21,11 @@ const TaskContainer = () => {
     });
     setTaskContainer(tempArg);
   };
+  const allTaskHrs = taskContainer.reduce(
+    (acc, curr) => acc + curr.taskTime,
+    0
+  );
+  // const hrsToDiplay = () => setDisplay();
 
   return (
     <>
@@ -40,7 +46,9 @@ const TaskContainer = () => {
           switchTask={switchTask}
         />
         <div className="alert alert-info">
-          Total hrs per week allocated = <span id="totalHr">1234</span>hr
+          Total hrs per week allocated = <span id="totalHr">{allTaskHrs}</span>{" "}
+          hr/s
+          {/* {allTaskHrs > 1 ? <p>hours</p> : <p>hour</p>} */}
         </div>
       </div>
     </>
