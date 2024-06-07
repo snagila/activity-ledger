@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { randomIdGenerator } from "../../utilities/randomIdGenerator";
 
 const AddTaskForm = ({ taskContainer, setTaskContainer }) => {
+  const hrsPerWeek = 24 * 7;
   const [form, setForm] = useState({});
+
+  const totalHours = taskContainer.reduce(
+    (acc, curr) => acc + curr.taskTime,
+    0
+  );
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -16,7 +22,10 @@ const AddTaskForm = ({ taskContainer, setTaskContainer }) => {
       id: randomIdGenerator(),
       type: "allTask",
     };
-    setTaskContainer([...taskContainer, formData]);
+
+    totalHours + formData.taskTime > hrsPerWeek
+      ? alert("Sorry! You have allocated all the hours for the week")
+      : setTaskContainer([...taskContainer, formData]);
   };
   return (
     <>
