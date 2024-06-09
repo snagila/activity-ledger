@@ -5,11 +5,29 @@ import PitList from "./PitList";
 
 const TaskContainer = () => {
   const [taskContainer, setTaskContainer] = useState([]);
-  // const [display, setDisplay] = useState(false);
   const taskOverView = taskContainer.filter((item) => item.type === "allTask");
   const proPit = taskContainer.filter((item) => item.type === "pitList");
-
   const allTask = proPit.concat(taskOverView);
+
+  const dataCenter = (formData) => {
+    const hrsPerWeek = 24 * 7;
+    const totalHours = taskContainer.reduce(
+      (acc, curr) => acc + curr.taskTime,
+      0
+    );
+
+    const findItem = allTask.find(
+      (item) => item.taskName.toLowerCase() === formData.taskName.toLowerCase()
+    );
+
+    if (findItem) {
+      alert("Sorry! The task already exists");
+    } else {
+      totalHours + formData.taskTime > hrsPerWeek
+        ? alert("Sorry! You have allocated all the hours for the week")
+        : setTaskContainer([...taskContainer, formData]);
+    }
+  };
 
   const handleOnDelete = (id) => {
     if (window.confirm("Are you sure,you want to delete this Task?")) {
@@ -36,6 +54,7 @@ const TaskContainer = () => {
         taskContainer={taskContainer}
         setTaskContainer={setTaskContainer}
         allTask={allTask}
+        dataCenter={dataCenter}
       />
 
       <div className="row mt-5 pt-2">
