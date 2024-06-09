@@ -46,7 +46,7 @@ const TaskContainer = () => {
     (acc, curr) => acc + curr.taskTime,
     0
   );
-  // const hrsToDiplay = () => setDisplay();
+  const leftHours = 24 * 7 - allTaskHrs;
 
   return (
     <>
@@ -72,7 +72,9 @@ const TaskContainer = () => {
         <div className="alert alert-info mt-2">
           Total hrs per week allocated = <span id="totalHr">{allTaskHrs}</span>{" "}
           hr/s
-          {/* {allTaskHrs > 1 ? <p>hours</p> : <p>hour</p>} */}
+        </div>
+        <div className="alert alert-warning mt-2">
+          Total hrs left per week = <span id="totalHr">{leftHours}</span> hr/s
         </div>
       </div>
     </>

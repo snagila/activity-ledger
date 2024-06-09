@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { randomIdGenerator } from "../../utilities/randomIdGenerator";
 
 const AddTaskForm = ({ dataCenter }) => {
+  const initialState = {
+    taskName: "",
+    taskTime: "",
+  };
+
   const [form, setForm] = useState({});
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
+
     setForm({ ...form, [name]: name === "taskTime" ? +value : value });
   };
 
@@ -18,6 +24,7 @@ const AddTaskForm = ({ dataCenter }) => {
       type: "allTask",
     };
     dataCenter(formData);
+    setForm(initialState);
   };
 
   return (
@@ -36,6 +43,7 @@ const AddTaskForm = ({ dataCenter }) => {
               name="taskName"
               onChange={handleOnChange}
               required
+              value={form.taskName}
             />
           </div>
           <div className="col-md-3">
@@ -45,9 +53,10 @@ const AddTaskForm = ({ dataCenter }) => {
               placeholder="Hours/week"
               name="taskTime"
               onChange={handleOnChange}
+              value={form.taskTime}
               required
               min="1"
-              max="24"
+              max="168"
             />
           </div>
           <div className="col-md-3 ">
