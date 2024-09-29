@@ -35,11 +35,11 @@ const PitList = ({ handleOnDelete, proPit, switchTask }) => {
             </tbody>
           </table>
         </div>
-
-        <div className="alert alert-danger mt-3">
-          You could have save = <span>{proPitHrs}</span> hr/s
-          {/* {proPitHrs > 1 ? <p>hours</p> : <p>hour</p>} */}
-        </div>
+        {proPit.length > 0 && (
+          <div className="alert alert-danger mt-3">
+            You could have save = <span>{proPitHrs}</span> hr/s
+          </div>
+        )}
       </div>
     </>
   );

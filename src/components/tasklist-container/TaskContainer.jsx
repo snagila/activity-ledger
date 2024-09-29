@@ -5,6 +5,7 @@ import PitList from "./PitList";
 
 const TaskContainer = () => {
   const [taskContainer, setTaskContainer] = useState([]);
+  console.log(taskContainer);
   const taskOverView = taskContainer.filter((item) => item.type === "allTask");
   const proPit = taskContainer.filter((item) => item.type === "pitList");
   const allTask = proPit.concat(taskOverView);
@@ -57,26 +58,33 @@ const TaskContainer = () => {
         dataCenter={dataCenter}
       />
 
-      <div className="row mt-5 pt-2">
-        <TaskList
-          handleOnDelete={handleOnDelete}
-          switchTask={switchTask}
-          taskOverView={taskOverView}
-        />
-        <PitList
-          taskContainer={taskContainer}
-          handleOnDelete={handleOnDelete}
-          switchTask={switchTask}
-          proPit={proPit}
-        />
-        <div className="alert alert-info mt-2">
-          Total hrs per week allocated = <span id="totalHr">{allTaskHrs}</span>{" "}
-          hr/s
+      {taskContainer.length === 0 && (
+        <div className="mt-3 text-center fw-bold text-danger">
+          Please add a task to start.
         </div>
-        <div className="alert alert-warning mt-2">
-          Total hrs left per week = <span id="totalHr">{leftHours}</span> hr/s
+      )}
+      {taskContainer.length > 0 && (
+        <div className="row mt-5 pt-2">
+          <TaskList
+            handleOnDelete={handleOnDelete}
+            switchTask={switchTask}
+            taskOverView={taskOverView}
+          />
+          <PitList
+            taskContainer={taskContainer}
+            handleOnDelete={handleOnDelete}
+            switchTask={switchTask}
+            proPit={proPit}
+          />
+          <div className="alert alert-info mt-2">
+            Total hrs per week allocated ={" "}
+            <span id="totalHr">{allTaskHrs}</span> hr/s
+          </div>
+          <div className="alert alert-warning mt-2">
+            Total hrs left per week = <span id="totalHr">{leftHours}</span> hr/s
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
